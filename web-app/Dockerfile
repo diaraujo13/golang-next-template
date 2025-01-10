@@ -29,7 +29,7 @@ FROM base as dev
 COPY package-*.json  ./
 
 RUN apk add --no-cache libc6-compat libstdc++ \
-    && yarn add @next/swc-linux-x64-musl --optional \
+    && yarn add @next/swc-linux-x64-musl --optional || yarn add @next/swc-linux-arm64-musl --optional  \
     && yarn install
 
 COPY . .
